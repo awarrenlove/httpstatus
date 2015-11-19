@@ -44,20 +44,20 @@ class HTTPStatus:
     def __repr__(self):
         return "HTTPStatus('%s',%d)" % (self.description, self.code)
 
-    def is_informational(self):
-        return 100 <= self <= 199
+def is_informational(status):
+    return 100 <= status <= 199
 
-    def is_success(self):
-        return 200 <= self <= 299
+def is_success(status):
+    return 200 <= status <= 299
 
-    def is_redirect(self):
-        return 300 <= self <= 399
+def is_redirect(status):
+    return 300 <= status <= 399
 
-    def is_client_error(self):
-        return 400 <= self <= 499
+def is_client_error(status):
+    return 400 <= status <= 499
 
-    def is_server_error(self):
-        return 500 <= self <= 599
+def is_server_error(status):
+    return 500 <= status <= 599
 
 
 HTTP_100_CONTINUE = HTTPStatus(100, 'Continue')

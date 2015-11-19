@@ -45,19 +45,24 @@ class HTTPhttpstatusTest(unittest.TestCase):
         self.assertTrue(httpstatus_str == 'HTTP 200 - OK')
     
     def test_is_informational(self):
-        self.assertTrue(httpstatus.HTTP_100_CONTINUE.is_informational())
+        self.assertTrue(httpstatus.is_informational(httpstatus.HTTP_100_CONTINUE))
+        self.assertTrue(httpstatus.is_informational(100))
     
     def test_is_success(self):
-        self.assertTrue(httpstatus.HTTP_200_OK.is_success())
+        self.assertTrue(httpstatus.is_success(httpstatus.HTTP_200_OK))
+        self.assertTrue(httpstatus.is_success(200))
     
     def test_is_redirect(self):
-        self.assertTrue(httpstatus.HTTP_300_MULTIPLE_CHOICES.is_redirect())
+        self.assertTrue(httpstatus.is_redirect(httpstatus.HTTP_300_MULTIPLE_CHOICES))
+        self.assertTrue(httpstatus.is_redirect(300))
     
     def test_is_client_error(self):
-        self.assertTrue(httpstatus.HTTP_400_BAD_REQUEST.is_client_error())
+        self.assertTrue(httpstatus.is_client_error(httpstatus.HTTP_400_BAD_REQUEST))
+        self.assertTrue(httpstatus.is_client_error(400))
     
     def test_is_server_error(self):
-        self.assertTrue(httpstatus.HTTP_500_INTERNAL_SERVER_ERROR.is_server_error())
+        self.assertTrue(httpstatus.is_server_error(httpstatus.HTTP_500_INTERNAL_SERVER_ERROR))
+        self.assertTrue(httpstatus.is_server_error(500))
 
 
 if __name__ == '__main__':
